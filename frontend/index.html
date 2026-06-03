@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediSense AI — Smart Health Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">✚</div>
+      <div class="brand">
+        <h1>MediSense <span class="ai-tag">AI</span></h1>
+        <p class="brand-sub"><span class="status-dot"></span> Smart Health Assistant · Online</p>
+      </div>
+    </div>
+    <div class="disclaimer">⚠ Not a substitute for professional medical advice</div>
+  </header>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <p class="sidebar-label">Services</p>
+
+      <button type="button" class="nav-btn active" data-mode="symptoms" onclick="switchMode(this)">
+        <span>🩺</span>
+        <div>
+          <div class="nav-title">Symptom Checker</div>
+          <div class="nav-desc">Describe what you feel</div>
+        </div>
+      </button>
+
+      <button type="button" class="nav-btn" data-mode="tips" onclick="switchMode(this)">
+        <span>💊</span>
+        <div>
+          <div class="nav-title">Health Tips</div>
+          <div class="nav-desc">Lifestyle and wellness advice</div>
+        </div>
+      </button>
+
+      <button type="button" class="nav-btn" data-mode="emergency" onclick="switchMode(this)">
+        <span>🚨</span>
+        <div>
+          <div class="nav-title">Emergency Guide</div>
+          <div class="nav-desc">When to see a doctor</div>
+        </div>
+      </button>
+
+      <button type="button" class="nav-btn" data-mode="qa" onclick="switchMode(this)">
+        <span>📋</span>
+        <div>
+          <div class="nav-title">Health Q&A</div>
+          <div class="nav-desc">General medical questions</div>
+        </div>
+      </button>
+
+      <div class="sidebar-footer">
+        🏥 AI-powered health guidance<br/>
+        🔒 Your data stays private<br/>
+        🌍 Available 24/7
+      </div>
+    </aside>
+
+    <main class="main-panel">
+
+      <div class="mode-bar">
+        <div class="mode-left">
+          <span id="mode-icon">🩺</span>
+          <div>
+            <div class="mode-title" id="mode-title">Symptom Checker</div>
+            <div class="mode-sub" id="mode-sub">Describe what you feel and I will help assess it</div>
+          </div>
+        </div>
+        <button type="button" class="clear-btn" id="clear-btn" onclick="clearChat()">Clear Chat</button>
+      </div>
+
+      <div class="chat-box" id="chat-box">
+        <div class="welcome" id="welcome">
+          <div class="welcome-emoji">🩺</div>
+          <h2 id="welcome-title">Symptom Checker</h2>
+          <p id="welcome-desc">Describe your symptoms and I will help you understand what might be going on and whether you need medical attention.</p>
+          <div class="suggestions" id="suggestions">
+            <button type="button" class="suggest-btn" onclick="fillInput(this)">I have a headache and fever</button>
+            <button type="button" class="suggest-btn" onclick="fillInput(this)">My chest feels tight when I breathe</button>
+            <button type="button" class="suggest-btn" onclick="fillInput(this)">I have had a sore throat for 3 days</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="input-row">
+          <textarea id="user-input" placeholder="Describe your symptoms here..." rows="2" onkeydown="handleKey(event)"></textarea>
+          <button type="button" class="send-btn" id="send-btn" onclick="sendMessage()">Send ➤</button>
+        </div>
+        <p class="input-hint">Enter to send · Shift+Enter for new line · Always consult a real doctor for serious concerns</p>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
